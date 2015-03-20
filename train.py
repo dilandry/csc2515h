@@ -83,23 +83,16 @@ x, y = load_train_data()
 
 x = x.T # samples x 32 x 32
 
-#print x.shape
-#pylab.subplot(1, 3, 1); pylab.imshow(x[100][0])
-#pylab.subplot(1, 3, 2); pylab.imshow(x[100][1])
-#pylab.subplot(1, 3, 3); pylab.imshow(x[100][2])
-#pylab.show()
-
 x_greyscale = greyscale_array(x)
 
 print(x_greyscale.shape)
 print(y.shape)
-#y.shape = (y.shape[0], )
+
+# Remove inner array
 y = np.reshape(y, len(y))
+# Output index must zero-indexed for python
 y = y-1
 print(y)
-#y = (y - 48) / 48
-#y = (y) * 0.10
-#print(y)
 
 y_binary = np.zeros((len(y), 10))
 
