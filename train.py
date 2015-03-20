@@ -97,10 +97,10 @@ net2 = NeuralNet(
             hidden5_num_units=100,
             output_num_units=10, output_nonlinearity=None,
 
-            update_learning_rate=0.001,
+            update_learning_rate=0.01,
             update_momentum=0.2,
 
-            regression=True,
+            regression=False,
             max_epochs=5,
             verbose=1,
     )
