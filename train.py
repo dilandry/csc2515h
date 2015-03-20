@@ -5,6 +5,8 @@ from lasagne import layers
 from lasagne.updates import nesterov_momentum
 from nolearn.lasagne import NeuralNet
 import numpy as np
+import theano
+import lasagne
 
 from scipy.io import loadmat
 
@@ -28,12 +30,13 @@ def greyscale_array(array):
     y_axis = array.shape[2]
     x_axis = array.shape[3]
 
-    result = np.zeros((samples, 1, y_axis, x_axis))
+    result = np.zeros((samples, y_axis * x_axis))
     for sample in range(samples):
         image = array[sample].T # dim is (32, 32, 3)
-        result[sample][0] = (rgb2gray(image))
+        result[sample] = np.reshape(rgb2gray(image), -1)
 
     print "Greyscaling filter done!"
+    result = result / 255
 
     return result
 
@@ -80,28 +83,26 @@ x = x.T # samples x 32 x 32
 
 x_greyscale = greyscale_array(x)
 print(x_greyscale.shape)
+y.shape = (y.shape[0], )
+y = (y - 48) / 48
 
 net2 = NeuralNet(
     layers=[
             ('input', layers.InputLayer),
-            ('conv1', layers.Conv2DLayer),
-            ('pool1', layers.MaxPool2DLayer),
             ('hidden5', layers.DenseLayer),
             ('output', layers.DenseLayer),
             ],
 
-            input_shape=(None, 1, 32, 32),
-            conv1_num_filters=22, conv1_filter_size=(3, 3), pool1_ds=(2, 2),
+            input_shape=(None, 1024),
             hidden5_num_units=100,
-            output_num_units=1, output_nonlinearity=None,
+            output_num_units=10, output_nonlinearity=None,
 
-            update_learning_rate=0.01,
+            update_learning_rate=0.001,
             update_momentum=0.2,
 
-            regression=False,
-            max_epochs=20,
+            regression=True,
+            max_epochs=5,
             verbose=1,
     )
 
-y.shape = (y.shape[0], )
 net2.fit(x_greyscale, y)
