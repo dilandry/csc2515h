@@ -7,6 +7,7 @@ from nolearn.lasagne import NeuralNet
 import numpy as np
 import theano
 import lasagne
+import pylab
 
 from scipy.io import loadmat
 
@@ -64,7 +65,8 @@ def load_train_data():
     dim y: (73257, 1)
     returns: x, y
     """
-    train_file = "data/train_32x32.mat"
+    #train_file = "data/train_32x32.mat"
+    train_file = "../data/train_32x32.mat"
 
     print "Loading training data from: " + train_file
 
@@ -81,10 +83,25 @@ x, y = load_train_data()
 
 x = x.T # samples x 32 x 32
 
+#print x.shape
+#pylab.subplot(1, 3, 1); pylab.imshow(x[100][0])
+#pylab.subplot(1, 3, 2); pylab.imshow(x[100][1])
+#pylab.subplot(1, 3, 3); pylab.imshow(x[100][2])
+#pylab.show()
+
 x_greyscale = greyscale_array(x)
+
 print(x_greyscale.shape)
-y.shape = (y.shape[0], )
-y = (y - 48) / 48
+print(y.shape)
+#y.shape = (y.shape[0], )
+y = np.reshape(y, len(y))
+y = y-1
+print(y)
+#y = (y - 48) / 48
+#y = (y) * 0.10
+#print(y)
+
+y_binary = np.zeros((len(y), 10))
 
 net2 = NeuralNet(
     layers=[
@@ -94,8 +111,10 @@ net2 = NeuralNet(
             ],
 
             input_shape=(None, 1024),
+            #hidden5_num_units=100,
             hidden5_num_units=100,
-            output_num_units=10, output_nonlinearity=None,
+            #output_num_units=10, output_nonlinearity=None,
+            output_num_units=10, output_nonlinearity=lasagne.nonlinearities.softmax,
 
             update_learning_rate=0.01,
             update_momentum=0.2,
