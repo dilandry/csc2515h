@@ -20,12 +20,12 @@ def rgb2gray(rgb):
     gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
     return gray
 
-def greyscale_array(array):
+def greyscale_lin_array(array):
     """ Expect array to be (samples x 3 x y-axis x x-axis)
 
     Returns: (samples x y-axis x x-axis)
     """
-    print "Greyscaling filter on the images..."
+    print "Greyscaling and linearizing images..."
 
     samples = array.shape[0]
     y_axis = array.shape[2]
@@ -39,6 +39,28 @@ def greyscale_array(array):
     print "Greyscaling filter done!"
     result = result / 255
 
+    return result
+
+def greyscale_array(array):
+    """ Expect array to be (samples x 3 x y-axis x x-axis)
+
+    Returns: (samples x 1 x y-axis x x-axis)
+    """
+    print "Greyscaling filter on the images..."
+
+    samples = array.shape[0]
+    y_axis = array.shape[2]
+    x_axis = array.shape[3]
+
+    result = np.zeros((samples, 1, y_axis, x_axis))
+    for sample in range(samples):
+        image = array[sample].T # dim is (32, 32, 3)
+        result[sample][0] = rgb2gray(image)
+
+    print "Greyscaling filter done!"
+    result = result / 255
+
+    #return rgb2gray(array.T).T
     return result
 
 def show_image(array):
@@ -83,6 +105,8 @@ x, y = load_train_data()
 
 x = x.T # samples x 32 x 32
 
+print x.shape
+
 x_greyscale = greyscale_array(x)
 
 print(x_greyscale.shape)
@@ -92,20 +116,25 @@ print(y.shape)
 y = np.reshape(y, len(y))
 # Output index must zero-indexed for python
 y = y-1
-print(y)
 
 y_binary = np.zeros((len(y), 10))
 
 net2 = NeuralNet(
     layers=[
             ('input', layers.InputLayer),
+            ('conv1', layers.Conv2DLayer),
+            ('pool1', layers.MaxPool2DLayer),
+            ('conv2', layers.Conv2DLayer),
+            ('pool2', layers.MaxPool2DLayer),
             ('hidden5', layers.DenseLayer),
             ('output', layers.DenseLayer),
             ],
 
-            input_shape=(None, 1024),
+            input_shape=(None, 1, 32, 32),
+            conv1_num_filters=8, conv1_filter_size=(4,4), pool1_ds=(2, 2),
+            conv2_num_filters=16, conv2_filter_size=(3,3), pool2_ds=(2, 2),
             #hidden5_num_units=100,
-            hidden5_num_units=512,
+            hidden5_num_units=300,
             #output_num_units=10, output_nonlinearity=None,
             output_num_units=10, output_nonlinearity=lasagne.nonlinearities.softmax,
 
@@ -113,8 +142,15 @@ net2 = NeuralNet(
             update_momentum=0.2,
 
             regression=False,
-            max_epochs=100,
+            max_epochs=20,
             verbose=1,
     )
 
 net2.fit(x_greyscale, y)
+
+# Save model for future use...
+net2.save_weights_to('./weights.dat')
+
+import cPickle as pickle
+with open('net2.pickle', 'wb') as f:
+    pickle.dump(net2, f, -1)
