@@ -138,11 +138,11 @@ net2 = NeuralNet(
             #output_num_units=10, output_nonlinearity=None,
             output_num_units=10, output_nonlinearity=lasagne.nonlinearities.softmax,
 
-            update_learning_rate=0.05,
+            update_learning_rate=0.035,
             update_momentum=0.2,
 
             regression=False,
-            max_epochs=20,
+            max_epochs=50,
             verbose=1,
     )
 
