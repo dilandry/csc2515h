@@ -20,12 +20,13 @@ def rgb2gray(rgb):
     gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
     return gray
 
-def greyscale_array(array):
+
+def greyscale_lin_array(array):
     """ Expect array to be (samples x 3 x y-axis x x-axis)
 
     Returns: (samples x y-axis x x-axis)
     """
-    print "Greyscaling filter on the images..."
+    print "Greyscaling and linearizing images..."
 
     samples = array.shape[0]
     y_axis = array.shape[2]
@@ -39,6 +40,28 @@ def greyscale_array(array):
     print "Greyscaling filter done!"
     result = result / 255
 
+    return result
+
+def greyscale_array(array):
+    """ Expect array to be (samples x 3 x y-axis x x-axis)
+
+    Returns: (samples x 1 x y-axis x x-axis)
+    """
+    print "Greyscaling filter on the images..."
+
+    samples = array.shape[0]
+    y_axis = array.shape[2]
+    x_axis = array.shape[3]
+
+    result = np.zeros((samples, 1, y_axis, x_axis))
+    for sample in range(samples):
+        image = array[sample].T # dim is (32, 32, 3)
+        result[sample][0] = rgb2gray(image)
+
+    print "Greyscaling filter done!"
+    result = result / 255
+
+    #return rgb2gray(array.T).T
     return result
 
 def show_image(array):
@@ -83,7 +106,7 @@ x, y = load_train_data()
 
 x = x.T # samples x 32 x 32
 
-x_greyscale = greyscale_array(x)
+x_greyscale = greyscale_lin_array(x)
 
 print(x_greyscale.shape)
 print(y.shape)

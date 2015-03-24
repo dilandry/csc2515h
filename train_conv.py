@@ -126,7 +126,7 @@ net2 = NeuralNet(
             ('pool1', layers.MaxPool2DLayer),
             ('conv2', layers.Conv2DLayer),
             ('pool2', layers.MaxPool2DLayer),
-            ('hidden5', layers.DenseLayer),
+            #('hidden5', layers.DenseLayer),
             ('output', layers.DenseLayer),
             ],
 
@@ -134,15 +134,15 @@ net2 = NeuralNet(
             conv1_num_filters=8, conv1_filter_size=(4,4), pool1_ds=(2, 2),
             conv2_num_filters=16, conv2_filter_size=(3,3), pool2_ds=(2, 2),
             #hidden5_num_units=100,
-            hidden5_num_units=300,
+            #hidden5_num_units=300,
             #output_num_units=10, output_nonlinearity=None,
             output_num_units=10, output_nonlinearity=lasagne.nonlinearities.softmax,
 
-            update_learning_rate=0.035,
+            update_learning_rate=0.04,
             update_momentum=0.2,
 
             regression=False,
-            max_epochs=50,
+            max_epochs=100,
             verbose=1,
     )
 
