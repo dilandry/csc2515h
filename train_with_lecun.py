@@ -20,16 +20,18 @@ from numpy import float64
 
 a = loadmat('lcn_transform.mat')
 
-x = a['X']
-y = a['y'].T
+x = a['X']      # (samples, 3, 32, 32)
+y = a['y'].T    # (samples, 1)
 
 print x.shape
 print y.shape
 
+samples = x.shape[0]
 
-items = 10000
+items = samples
+
 # reduce the set to process for now
-x_greyscale = x[:items]
+x = x[:items]
 y = y[:items]
 
 # Remove inner array
@@ -58,4 +60,4 @@ net2 = NeuralNet(
             verbose=1,
     )
 
-net2.fit(x_greyscale.astype(float64)/256, y)
+net2.fit(x.astype(float64)/256, y)

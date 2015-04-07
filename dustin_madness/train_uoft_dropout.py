@@ -1,5 +1,5 @@
 # ==============================================================================
-# DISCLAIMER: This does not work! (for now!)
+# From http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf
 # ==============================================================================
 from lasagne import layers
 from lasagne.updates import nesterov_momentum
