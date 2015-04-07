@@ -25,3 +25,8 @@ pip install nolearn
 # install matplotlib to plot stuff
 pip install matplotlib
 ```
+
+Also, install pylearn2.
+
+# Lecun Transform
+TO use the dataset for lecun, download the mat file from https://www.dropbox.com/s/povwqf7mewf3yza/lcn_transform.mat?dl=0
