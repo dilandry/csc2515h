@@ -84,7 +84,7 @@ uoft = NeuralNet(
             ('output', layers.DenseLayer),
             ],
 
-            input_shape=(None, 1, 32, 32),
+            input_shape=(None, 3, 32, 32),
             conv1_num_filters=96, conv1_filter_size=(5,5), pool1_ds=(3, 3),
             conv2_num_filters=128, conv2_filter_size=(5,5), pool2_ds=(3, 3),
             conv3_num_filters=256, conv3_filter_size=(5,5), pool3_ds=(3, 3),
