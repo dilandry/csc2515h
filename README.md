@@ -1,7 +1,7 @@
 ## csc2515h class project housenumber
 
 ### General Structure
-Python code for the digit recognition is in folder "recognition"
+Python code for the digit recognition is in folder "recognition". 
 MATLAB and Python code for the digit segmentation is in folder "segmentation"
 
 ### Libraries Used
