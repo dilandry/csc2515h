@@ -131,14 +131,14 @@ net2 = NeuralNet(
             ],
 
             input_shape=(None, 1, 32, 32),
-            conv1_num_filters=8, conv1_filter_size=(4,4), pool1_ds=(2, 2),
-            conv2_num_filters=16, conv2_filter_size=(3,3), pool2_ds=(2, 2),
+            conv1_num_filters=24, conv1_filter_size=(4,4), pool1_ds=(2, 2),
+            conv2_num_filters=48, conv2_filter_size=(3,3), pool2_ds=(2, 2),
             #hidden5_num_units=100,
             #hidden5_num_units=300,
             #output_num_units=10, output_nonlinearity=None,
             output_num_units=10, output_nonlinearity=lasagne.nonlinearities.softmax,
 
-            update_learning_rate=0.04,
+            update_learning_rate=0.05,
             update_momentum=0.2,
 
             regression=False,
