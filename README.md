@@ -1,10 +1,15 @@
 ## csc2515h class project housenumber
 
+### General Structure
+Python code for the digit recognition is in folder "recognition"
+MATLAB and Python code for the digit segmentation is in folder "segmentation"
 
 ### Libraries Used
 For now, we'll be using _Python_ and the
 [Lasagne](https://github.com/benanne/Lasagne) library for developing our Neural
 Network, together with Theano, numpy, and scipy.
+
+MATLAB was also used.
 
 ### Setup
 If your `data` folder is empty, please run `get_data.sh` from the `data` folder
