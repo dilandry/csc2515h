@@ -1206,3 +1206,187 @@ Greyscaling filter done!
     12  |    0.255008  |    0.448357  |     0.568761  |     87.83%  |  643.7s
     13  |    0.235726  |    0.451030  |     0.522639  |     88.00%  |  643.5s
     14  |    0.217436  |    0.459524  |     0.473176  |     87.98%  |  644.5s
+
+Added 100k extras...
+    ubuntu@ip-10-0-0-137:~/csc2515h$ python train_conv_aug.py
+Loading training data from: data/train_32x32_extr_100k.mat
+Loading training data done!
+(100000, 3, 32, 32)
+Greyscaling filter on the images...
+Greyscaling filter done!
+(100000, 1, 32, 32)
+(100000, 1)
+[3 6 7 ..., 0 5 8]
+  InputLayer            (None, 1, 32, 32)       produces    1024 outputs
+  Conv2DLayer           (None, 24, 28, 28)      produces   18816 outputs
+  MaxPool2DLayer        (None, 24, 14, 14)      produces    4704 outputs
+  Conv2DLayer           (None, 32, 11, 11)      produces    3872 outputs
+  MaxPool2DLayer        (None, 32, 6, 6)        produces    1152 outputs
+  DenseLayer            (None, 300)             produces     300 outputs
+  DenseLayer            (None, 10)              produces      10 outputs
+
+ Epoch  |  Train loss  |  Valid loss  |  Train / Val  |  Valid acc  |  Dur
+--------|--------------|--------------|---------------|-------------|-------
+     1  |    2.091760  |    1.260622  |     1.659308  |     60.73%  |  657.9s
+     2  |    0.808725  |    0.475241  |     1.701717  |     86.41%  |  658.9s
+     3  |    0.515508  |    0.336642  |     1.531322  |     90.69%  |  659.0s
+     4  |    0.428439  |    0.288009  |     1.487587  |     92.02%  |  659.3s
+     5  |    0.375699  |    0.263372  |     1.426499  |     92.67%  |  659.6s
+     6  |    0.337721  |    0.251000  |     1.345501  |     93.06%  |  661.1s
+     7  |    0.307809  |    0.242367  |     1.270011  |     93.42%  |  660.7s
+     8  |    0.282504  |    0.238487  |     1.184571  |     93.46%  |  660.7s
+     9  |    0.260344  |    0.233274  |     1.116044  |     93.68%  |  661.0s
+    10  |    0.240140  |    0.232395  |     1.033327  |     93.74%  |  660.9s
+
+Added 200k extras
+ubuntu@ip-10-0-0-138:~/csc2515h$ python train_conv_aug.py
+Loading training data from: data/train_32x32_extr_200k.mat
+Loading training data done!
+(200000, 3, 32, 32)
+Greyscaling filter on the images...
+Greyscaling filter done!
+(200000, 1, 32, 32)
+(200000, 1)
+[3 6 7 ..., 0 5 8]
+  InputLayer            (None, 1, 32, 32)       produces    1024 outputs
+  Conv2DLayer           (None, 24, 28, 28)      produces   18816 outputs
+  MaxPool2DLayer        (None, 24, 14, 14)      produces    4704 outputs
+  Conv2DLayer           (None, 32, 11, 11)      produces    3872 outputs
+  MaxPool2DLayer        (None, 32, 6, 6)        produces    1152 outputs
+  DenseLayer            (None, 300)             produces     300 outputs
+  DenseLayer            (None, 10)              produces      10 outputs
+
+ Epoch  |  Train loss  |  Valid loss  |  Train / Val  |  Valid acc  |  Dur
+--------|--------------|--------------|---------------|-------------|-------
+     1  |    1.137936  |    0.417950  |     2.722662  |     88.18%  |  1324.2s
+     2  |    0.389121  |    0.270927  |     1.436259  |     92.60%  |  1326.5s
+     3  |    0.314818  |    0.233411  |     1.348768  |     93.72%  |  1324.6s
+     4  |    0.272483  |    0.209264  |     1.302099  |     94.33%  |  1325.8s
+     5  |    0.242994  |    0.197951  |     1.227547  |     94.64%  |  1326.9s
+     6  |    0.220291  |    0.189500  |     1.162485  |     94.81%  |  1329.3s
+     7  |    0.201387  |    0.184075  |     1.094049  |     94.93%  |  1328.0s
+     8  |    0.184949  |    0.182121  |     1.015528  |     94.99%  |  1326.1s
+     9  |    0.170493  |    0.181989  |     0.936835  |     94.97%  |  1326.5s
+    10  |    0.157176  |    0.182115  |     0.863062  |     95.06%  |  1326.8s
+
+Added 300k extras
+ubuntu@ip-10-0-0-137:~/csc2515h$ python train_conv_aug.py
+Loading training data from: data/train_32x32_extr_300k.mat
+Loading training data done!
+(300000, 3, 32, 32)
+Greyscaling filter on the images...
+Greyscaling filter done!
+(300000, 1, 32, 32)
+(300000, 1)
+[3 6 7 ..., 0 5 8]
+  InputLayer            (None, 1, 32, 32)       produces    1024 outputs
+  Conv2DLayer           (None, 24, 28, 28)      produces   18816 outputs
+  MaxPool2DLayer        (None, 24, 14, 14)      produces    4704 outputs
+  Conv2DLayer           (None, 32, 11, 11)      produces    3872 outputs
+  MaxPool2DLayer        (None, 32, 6, 6)        produces    1152 outputs
+  DenseLayer            (None, 300)             produces     300 outputs
+  DenseLayer            (None, 10)              produces      10 outputs
+
+ Epoch  |  Train loss  |  Valid loss  |  Train / Val  |  Valid acc  |  Dur
+--------|--------------|--------------|---------------|-------------|-------
+     1  |    0.972049  |    0.364066  |     2.669983  |     89.89%  |  1968.9s
+     2  |    0.319709  |    0.242811  |     1.316702  |     93.37%  |  1979.1s
+     3  |    0.252501  |    0.202772  |     1.245246  |     94.47%  |  1975.8s
+     4  |    0.216118  |    0.184011  |     1.174482  |     94.93%  |  1977.8s
+     5  |    0.191513  |    0.173413  |     1.104375  |     95.22%  |  1974.2s
+     6  |    0.172746  |    0.166120  |     1.039888  |     95.43%  |  1972.9s
+     7  |    0.157229  |    0.163115  |     0.963913  |     95.56%  |  1972.1s
+     8  |    0.143911  |    0.160957  |     0.894098  |     95.68%  |  1977.8s
+     9  |    0.132339  |    0.162658  |     0.813605  |     95.69%  |  1976.8s
+    10  |    0.121708  |    0.165053  |     0.737382  |     95.69%  |  1984.3s
+
+Added 400k extras
+ubuntu@ip-10-0-0-136:~/csc2515h$ python train_conv_aug.py
+Loading training data from: data/train_32x32_extr_400k.mat
+Loading training data done!
+(400000, 3, 32, 32)
+Greyscaling filter on the images...
+Greyscaling filter done!
+(400000, 1, 32, 32)
+(400000, 1)
+[3 6 7 ..., 0 5 8]
+  InputLayer            (None, 1, 32, 32)       produces    1024 outputs
+  Conv2DLayer           (None, 24, 28, 28)      produces   18816 outputs
+  MaxPool2DLayer        (None, 24, 14, 14)      produces    4704 outputs
+  Conv2DLayer           (None, 32, 11, 11)      produces    3872 outputs
+  MaxPool2DLayer        (None, 32, 6, 6)        produces    1152 outputs
+  DenseLayer            (None, 300)             produces     300 outputs
+  DenseLayer            (None, 10)              produces      10 outputs
+
+ Epoch  |  Train loss  |  Valid loss  |  Train / Val  |  Valid acc  |  Dur
+--------|--------------|--------------|---------------|-------------|-------
+     1  |    0.720520  |    0.274135  |     2.628338  |     92.52%  |  2614.5s
+     2  |    0.255759  |    0.204058  |     1.253369  |     94.38%  |  2613.6s
+     3  |    0.206004  |    0.179547  |     1.147355  |     95.13%  |  2611.5s
+     4  |    0.178086  |    0.165531  |     1.075846  |     95.58%  |  2610.3s
+     5  |    0.158452  |    0.157094  |     1.008643  |     95.81%  |  2608.8s
+     6  |    0.143457  |    0.151982  |     0.943906  |     95.93%  |  2609.5s
+     7  |    0.130869  |    0.149826  |     0.873473  |     95.97%  |  2610.7s
+     8  |    0.120151  |    0.149658  |     0.802835  |     96.02%  |  2611.5s
+     9  |    0.110646  |    0.150072  |     0.737289  |     96.02%  |  2610.9s
+    10  |    0.102099  |    0.152354  |     0.670144  |     96.00%  |  2611.7s
+
+Added 500k extras
+ubuntu@ip-10-0-0-85:~/csc2515h$ python train_conv_aug.py
+Loading training data from: data/train_32x32_extr_500k.mat
+Loading training data done!
+(500000, 3, 32, 32)
+Greyscaling filter on the images...
+Greyscaling filter done!
+(500000, 1, 32, 32)
+(500000, 1)
+[3 6 7 ..., 0 5 8]
+  InputLayer            (None, 1, 32, 32)       produces    1024 outputs
+  Conv2DLayer           (None, 24, 28, 28)      produces   18816 outputs
+  MaxPool2DLayer        (None, 24, 14, 14)      produces    4704 outputs
+  Conv2DLayer           (None, 32, 11, 11)      produces    3872 outputs
+  MaxPool2DLayer        (None, 32, 6, 6)        produces    1152 outputs
+  DenseLayer            (None, 300)             produces     300 outputs
+  DenseLayer            (None, 10)              produces      10 outputs
+
+ Epoch  |  Train loss  |  Valid loss  |  Train / Val  |  Valid acc  |  Dur
+--------|--------------|--------------|---------------|-------------|-------
+     1  |    0.711378  |    0.276756  |     2.570417  |     92.58%  |  3255.4s
+     2  |    0.255721  |    0.210595  |     1.214277  |     94.27%  |  3263.0s
+     3  |    0.206009  |    0.186821  |     1.102710  |     94.92%  |  3264.9s
+     4  |    0.178446  |    0.170419  |     1.047101  |     95.33%  |  3263.0s
+     5  |    0.159608  |    0.157822  |     1.011320  |     95.66%  |  3262.2s
+     6  |    0.145271  |    0.153203  |     0.948225  |     95.85%  |  3263.5s
+     7  |    0.133761  |    0.149529  |     0.894547  |     95.97%  |  3263.8s
+     8  |    0.123936  |    0.146827  |     0.844092  |     96.04%  |  3264.8s
+     9  |    0.115445  |    0.146673  |     0.787091  |     96.08%  |  3264.5s
+    10  |    0.107667  |    0.146432  |     0.735269  |     96.13%  |  3265.6s
+
+Added 600k
+Loading training data done!
+(604388, 3, 32, 32)
+Greyscaling filter on the images...
+Greyscaling filter done!
+(604388, 1, 32, 32)
+(604388, 1)
+[3 6 7 ..., 0 5 8]
+  InputLayer            (None, 1, 32, 32)       produces    1024 outputs
+  Conv2DLayer           (None, 24, 28, 28)      produces   18816 outputs
+  MaxPool2DLayer        (None, 24, 14, 14)      produces    4704 outputs
+  Conv2DLayer           (None, 32, 11, 11)      produces    3872 outputs
+  MaxPool2DLayer        (None, 32, 6, 6)        produces    1152 outputs
+  DenseLayer            (None, 300)             produces     300 outputs
+  DenseLayer            (None, 10)              produces      10 outputs
+
+ Epoch  |  Train loss  |  Valid loss  |  Train / Val  |  Valid acc  |  Dur
+--------|--------------|--------------|---------------|-------------|-------
+     1  |    0.548998  |    0.237554  |     2.311042  |     93.39%  |  3922.3s
+     2  |    0.209235  |    0.177510  |     1.178726  |     95.10%  |  3928.2s
+     3  |    0.168473  |    0.157369  |     1.070563  |     95.67%  |  3927.4s
+     4  |    0.145881  |    0.145730  |     1.001030  |     96.03%  |  3930.9s
+     5  |    0.129914  |    0.139598  |     0.930624  |     96.19%  |  3934.3s
+     6  |    0.117629  |    0.134979  |     0.871459  |     96.38%  |  3957.8s
+     7  |    0.107607  |    0.133137  |     0.808246  |     96.47%  |  3930.3s
+     8  |    0.098878  |    0.132572  |     0.745847  |     96.51%  |  3932.4s
+     9  |    0.091215  |    0.133875  |     0.681348  |     96.52%  |  3949.2s
+    10  |    0.084137  |    0.136812  |     0.614982  |     96.50%  |  3927.6s
