@@ -1,5 +1,10 @@
 # ==============================================================================
-# DISCLAIMER: This does not work! (for now!)
+# Neural Net for Digit Recognition. Extra filters added.
+#
+# Authors:
+#   Dustin Kut Moy Cheung
+#   Didier Landry
+# 
 # ==============================================================================
 from lasagne import layers
 from lasagne.updates import nesterov_momentum

@@ -1,3 +1,12 @@
+# ==============================================================================
+# This text file contains our raw results.
+#
+# Authors:
+#   Dustin Kut Moy Cheung
+#   Didier Landry
+# 
+# ==============================================================================
+
 learn 0.01
 [ddl@King-George csc2515h]$ python train.py
 Loading training data from: ../data/train_32x32.mat

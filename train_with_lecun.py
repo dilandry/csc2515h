@@ -1,5 +1,10 @@
 # ==============================================================================
-# DISCLAIMER: This does not work! (for now!)
+# Neural Net for Digit Recognition. Modified for Lecun.
+#
+# Authors:
+#   Dustin Kut Moy Cheung
+#   Didier Landry
+# 
 # ==============================================================================
 from lasagne import layers
 from lasagne.updates import nesterov_momentum
@@ -39,6 +44,7 @@ y = np.reshape(y, len(y))
 # Output index must zero-indexed for python
 y = y - 1
 
+# Neural Net Definition
 net2 = NeuralNet(
     layers=[
             ('input', layers.InputLayer),

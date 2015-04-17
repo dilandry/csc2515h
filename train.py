@@ -1,5 +1,10 @@
 # ==============================================================================
-# DISCLAIMER: This does not work! (for now!)
+# (Regular) Neural Net for Digit Recognition
+#
+# Authors:
+#   Dustin Kut Moy Cheung
+#   Didier Landry
+# 
 # ==============================================================================
 from lasagne import layers
 from lasagne.updates import nesterov_momentum

@@ -1,5 +1,10 @@
 # ==============================================================================
-# DISCLAIMER: This does not work! (for now!)
+# Convolutional Neural Net for Digit Recognition
+#
+# Authors:
+#   Dustin Kut Moy Cheung
+#   Didier Landry
+# 
 # ==============================================================================
 from lasagne import layers
 from lasagne.updates import nesterov_momentum
@@ -119,6 +124,7 @@ y = y-1
 
 y_binary = np.zeros((len(y), 10))
 
+# Neural Net Definition
 net2 = NeuralNet(
     layers=[
             ('input', layers.InputLayer),
@@ -132,7 +138,7 @@ net2 = NeuralNet(
 
             input_shape=(None, 1, 32, 32),
             conv1_num_filters=24, conv1_filter_size=(4,4), pool1_ds=(2, 2),
-            conv2_num_filters=48, conv2_filter_size=(3,3), pool2_ds=(2, 2),
+            conv2_num_filters=32, conv2_filter_size=(3,3), pool2_ds=(2, 2),
             #hidden5_num_units=100,
             #hidden5_num_units=300,
             #output_num_units=10, output_nonlinearity=None,
